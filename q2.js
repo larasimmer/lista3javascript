@@ -51,8 +51,7 @@ function calcularFatorial(n) {
             resultado = n*calcularFatorial(n - 1);
         }
     }
-
-    console.log(resultado);
+    
     return resultado;
 }
 

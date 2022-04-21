@@ -15,7 +15,7 @@ criarInputsEBotao();
 function criarInputsEBotao() {
     div4.innerHTML = "<h1>Exercício 4 - Lista de números aleatórios</h1><label for='quantidade-numeros'>Quantidade de números:</label><input type='number' name='quantidade-numeros' id='quantidade-numeros'><br><label for='valorMinimo'>Valor mínimo:</label><input type='number' name='valorMinimo' id='valorMinimo'><br><label for='valorMaximo'>Valor máximo:</label><input type='number' name='valorMaximo' id='valorMaximo'></input><br><button id='criar-lista'>Criar lista</button>"
     const botaoCriarLista = document.getElementById("criar-lista");
-    botaoCriarLista.addEventListener("click", criarLista);
+    botaoCriarLista.addEventListener("click", mostrarResultado);
 }
 
 function verificarInputsPreenchidos(input1, input2, input3) {
@@ -67,9 +67,11 @@ function criarLista() {
         lista.push(valorMaximo);
         lista.sort(function(a, b){return a-b});
     }
+}
 
-    console.log(quantidadeDeNumeros);
-    console.log(valorMinimo);
-    console.log(valorMaximo);
-    console.log(lista);
+function mostrarResultado() {
+    criarLista();
+    if (camposPreenchidos == true && quantidadeDeNumerosValida == true && valorMininoEMaximoCoerentes == true) {
+        div4.insertAdjacentHTML("beforeend", lista);
+    }
 }
